@@ -23,16 +23,9 @@ int exec_child(char *full_path, char **args)
 			free_command_arguments(args);
 			return (errno);
 		}
-/*		else
-		{
-			printf("exit status should be 127 + 2");
-			exit(EXIT_SUCCESS);
-			}*/
 	}
 	else
 	{
-		/*free all allocated memory*/
-/*		free(full_path);*/
 		free_command_arguments(args);
 		return (127);
 	}
@@ -54,18 +47,9 @@ int process_status(int p_status)
 	if (WIFEXITED(p_status))
 	{
 		exit_status = WEXITSTATUS(p_status);
-/*		if (exit_status == 0)
-		{
-			my_fprintf(stdout, "Environment:\n");*/
 			return (exit_status);
 	}
-/*	else
-	{
-		my_fprintf(stderr, "Command execution failed.\n");
-		return (exit_status);
-		}
-	printf("process status = %d\n", WIFEXITED(p_status));
-	return (p_status);*/
+
 }
 
 
@@ -86,16 +70,8 @@ int execute_command(char *command, int count)
 	pid_t pid;
 	char *full_path;
 	int status, exit_status;
-/*	char *variables[] = {"PWD", "HOME", "LANG", "LESSCLOSE",
-		"TERM", "LESSOPEN", "SHLVL", "DEBUGINFOD_URLS",
-		"PATH", "games", "OLDPWD", "_"};*/
 
 	args = parse_command_arguments(command);
-/*	if (args == NULL)
-	{
-		/*status = 0;
-		return;
-	}*/
 	pid = fork();
 
 	if (pid < 0)
@@ -121,9 +97,6 @@ int execute_command(char *command, int count)
 		if (!exit_status)
 			exit_status = process_status(status);
 
-/*		my_fprintf(stdin, "\n\nEnvironments:\n");
-		exec_env(variables);*/
-		/* Free the memory allocated for parsed command arguments*/
 		free_command_arguments(args);
 		return (exit_status);
 	}

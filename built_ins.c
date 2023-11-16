@@ -2,12 +2,12 @@
 
 /**
  * exec_env - a function that prints environment variables.
- * @variable: variables whose value is to be retrived
+ * @variables: variables whose value is to be retrived
  *
  * Return: 0 on success.
 */
 
-void exec_env (char **variables)
+void exec_env(char **variables)
 {
 	int i = 0;
 	char *value;

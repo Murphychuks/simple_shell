@@ -27,16 +27,6 @@ char **parse_commands(char *commands)
 
 	/* Tokenize the commands using delimeters*/
 	token = strtok(commands, delimeters);
-/*	if (token == NULL)
-	{
-		/*check and handle, if no more commands to be tokenized
-		if (commands != NULL)
-		{
-			token = strtok(NULL, delimeters);
-		}
-		else
-			token = NULL;
-	}*/
 	while (token != NULL && count < MAX_COMMANDS - 1)
 	{
 	    /* Trim leading and trailing whitespaces*/
@@ -162,3 +152,4 @@ size_t my_strlen(const char *str)
 	}
 	return (ptr - str);
 }
+

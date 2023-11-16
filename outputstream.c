@@ -1,45 +1,11 @@
  #include "main.h"
 
-
 /**
- * read_input - A function that read inputs from non-interactive mode.
+ * read_input - Function to read input command
+ * @void: No input expected
  *
- * Return: input read
+ * Return: input
  */
-/*char *read_input(void)
-{
-	char *line = NULL;
-	size_t line_len = 0;
-	char ch;
-	char *newline;
-
-	while ((ch = getchar()) != '\0')
-	{
-		if (line_len == 0)
-		{
-			line = malloc(1);
-		}
-		else
-		{
-			line = realloc(line, line_len + 1);
-		}
-
-		line[line_len++] = ch;
-	}
-	
-	/* Remove newline character if present*
-        newline = strchr(line, '\n');
-        if (newline)
-	{
-            *newline = '\0';
-        }
-
-
-     
-/*	line[line_len] = '\0';*
-
-	return (line);
-	}*/
 
 
 
@@ -50,7 +16,7 @@ char *read_input(void)
 	ssize_t bytesRead;
 	char c;
 	char *more_input = NULL;
-/*	char *newline;*/
+
 
 	if (!input)
 	{
@@ -79,15 +45,6 @@ char *read_input(void)
 		}
 	}
 	my_kill(bytesRead, input);
-
-/*	newline = strchr(input, '\n');
-	if (newline)
-	{
-            *newline = '\0';
-	    }*/
-	/* add a NULL terminating character */
-	/* to indicate end of string */
-	/*input[index] = '\0';*/
 
 	return (input);
 }
